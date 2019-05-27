@@ -1,0 +1,15 @@
+﻿@using Notes.ViewModels;
+@model GetNote
+@{
+ var note = Model.Note;
+}
+
+@*
+
+	For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+	<h1>hello, @note.UserName</h1>
+	<div>That's your note</div>
+	<h2>Text: @note.NoteText</h2>
+
+	<div>Заметка удалится через: @Model.DayDeleting дней - @Model.HourDeleting часов - @Model.MinuteDeleting минут </div>

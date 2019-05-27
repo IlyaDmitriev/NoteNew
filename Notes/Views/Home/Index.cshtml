@@ -1,0 +1,34 @@
+﻿@using NotesCore.Models;
+@model Note
+@{
+	ViewBag.Title = "Добавление смартфона";
+}
+<form asp-action="Create" asp-controller="home">
+	<div class="form-group">
+		<label asp-for="UserName" class="control-label">Название</label>
+		<input type="text" asp-for="UserName" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="NoteText" class="control-label">Компания</label>
+		<input type="text" asp-for="NoteText" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="DeleteAfterRead" class="control-label">Цена</label>
+		<input type="checkbox" asp-for="DeleteAfterRead" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="DaysDeleting" class="control-label">Дни</label>
+		<input type="number" asp-for="DaysDeleting" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="HoursDeleting" class="control-label">Часы</label>
+		<input type="number" asp-for="HoursDeleting" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="MinutesDeleting" class="control-label">Минуты</label>
+		<input type="number" asp-for="MinutesDeleting" class="form-control" />
+	</div>
+	<div class="form-group">
+		<input type="submit" value="Send" class="btn btn-default" />
+	</div>
+</form>
