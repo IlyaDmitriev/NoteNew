@@ -11,13 +11,14 @@ namespace Notes.Controllers
 {
 	public class NoteController : Controller
 	{
-		private NoteService NoteService;
-		public NoteController (NoteService _service)
+		private INoteService NoteService;
+		public NoteController (INoteService _service)
 		{
 			NoteService = _service;
 		}
 		public IActionResult GetNote(string guid)
 		{
+
 			var note = NoteService.GetNote(guid);
 			var viewModel = new GetNote();
 
@@ -41,8 +42,8 @@ namespace Notes.Controllers
 				viewModel.DayDeleting = date.Value != null ? date.Value.Days : 0;
 				viewModel.HourDeleting = date.Value != null ? date.Value.Hours : 0;
 				viewModel.MinuteDeleting = date.Value != null ? date.Value.Minutes : 0;
-			}			
-			
+			}
+			viewModel.Note = note;
 			return View("GetNote", viewModel);
 		}
 	}

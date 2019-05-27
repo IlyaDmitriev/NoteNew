@@ -13,8 +13,8 @@ namespace Notes.Controllers
 {
 	public class HomeController : Controller
 	{
-		public NoteService NoteService;
-		public HomeController(NoteService _service)
+		public INoteService NoteService;
+		public HomeController(INoteService _service)
 		{
 			NoteService = _service;
 		}
