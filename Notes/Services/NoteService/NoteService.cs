@@ -27,8 +27,7 @@ namespace Notes.Services.NoteService
 		}
 
 		public void AddNote(Note note)
-		{
-			
+		{			
 			context.Notes.Add(note);
 			context.SaveChanges();				
 		}

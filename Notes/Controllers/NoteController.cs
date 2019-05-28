@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Notes.Helpers.NoteHelper;
 using Notes.Services.NoteService;
 using Notes.ViewModels;
 using NotesCore.Models.Context;
@@ -18,32 +19,14 @@ namespace Notes.Controllers
 		}
 		public IActionResult GetNote(string guid)
 		{
-
 			var note = NoteService.GetNote(guid);
-			var viewModel = new GetNote();
+			var viewModel = FormingModel.FormingViewModel(note);
 
-			if (note.DeleteAfterRead)
+			if (viewModel.DeleteAfterRead && !viewModel.AlreadyDeleted)
 			{
-				viewModel.DeleteAfterRead = true;
-				if (note.AlreadyDeleted)
-				{
-					viewModel.AlreadyDeleted = true;					
-				}
-				else
-				{
-					NoteService.UpdateNoteAlreadyDeleted(note);
-				}
-			}
-			else
-			{				
-				var date = DateTime.Now - note.DeletingDate;
+				NoteService.UpdateNoteAlreadyDeleted(note);
+			}		
 
-				viewModel.DeleteAfterRead = false;
-				viewModel.DayDeleting = date.Value != null ? date.Value.Days : 0;
-				viewModel.HourDeleting = date.Value != null ? date.Value.Hours : 0;
-				viewModel.MinuteDeleting = date.Value != null ? date.Value.Minutes : 0;
-			}
-			viewModel.Note = note;
 			return View("GetNote", viewModel);
 		}
 	}

@@ -1,8 +1,16 @@
 ﻿@model string
 @{
-    ViewData["Title"] = "Create";
+	ViewData["Title"] = "Create";
+}
+@if (Model != "")
+{
+	<h1>@Model</h1>
+	<h2><a href="/note/getnote?guid=@Model">content</a></h2>
+}
+else
+{
+	<h1> К сожалению, ссылка не получилас, заполните еще раз </h1>
+	<a href="/">Заполнить заявку</a>
 }
 
-<h1>@Model</h1>
-<h2><a href="/note/getnote?guid=@Model">content</a></h2>
 
