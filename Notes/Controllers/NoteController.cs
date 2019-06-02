@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Notes.Helpers.HomeHelper;
 using Notes.Helpers.NoteHelper;
 using Notes.Services.NoteService;
 using Notes.ViewModels;
+using NotesCore.Models;
 using NotesCore.Models.Context;
 using System;
 using System.Collections.Generic;
@@ -25,9 +27,17 @@ namespace Notes.Controllers
 			if (viewModel.DeleteAfterRead && !viewModel.AlreadyDeleted)
 			{
 				NoteService.UpdateNoteAlreadyDeleted(note);
-			}		
+			}	
 
 			return View("GetNote", viewModel);
+		}
+
+		[HttpPost]
+		public IActionResult Create(Note note)
+		{
+			note = FormingNote.FormingDateDeleting(note);
+			NoteService.AddNote(note);
+			return View("Create", note.GuidNote);
 		}
 	}
 }
