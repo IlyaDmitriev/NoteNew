@@ -1,15 +1,15 @@
 ﻿@model string
 @{
-	ViewData["Title"] = "Create";
+	ViewData["Title"] = "Держите ссылку";
 }
 @if (Model != "")
 {
-	<h1>@Model</h1>
-	<h2><a href="/note/getnote?guid=@Model">content</a></h2>
+	<h1>Идентификатор ссылки - @Model</h1>
+	<h2><a href="/note/getnote?guid=@Model">По этой ссылке вы прочтете свою заметку</a></h2>
 }
 else
 {
-	<h1> К сожалению, ссылка не получилас, заполните еще раз </h1>
+	<h1> К сожалению, ссылка не получилась, заполните еще раз </h1>
 	<a href="/">Заполнить заявку</a>
 }
 

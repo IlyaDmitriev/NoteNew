@@ -12,6 +12,7 @@ namespace Notes.ViewModels
 		public int DayDeleting { get; set; }
 		public int HourDeleting { get; set; }
 		public int MinuteDeleting { get; set; }
+		public int SecondDeleting { get; set; }
 		public string Message { get; set; }
 		public bool AlreadyDeleted { get; set; }
 		public bool DeleteAfterRead { get; set; }

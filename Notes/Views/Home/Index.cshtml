@@ -38,12 +38,15 @@
 	<form class="container" id="needs-validation" asp-action="Create" asp-controller="home" novalidate>
 		<div class="form-group">
 			<label for="exampleInputPassword1" asp-for="UserName">Имя</label>
-			<input type="text" asp-for="UserName" class="form-control" required placeholder="Введите имя">
+			<input type="text" asp-for="UserName" class="form-control" placeholder="Введите имя">
 		</div>
 
 		<div class="form-group">
 			<label for="exampleInputEmail1">Заметка</label>
-			<input type="text" asp-for="NoteText" maxlength="1000" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите заметку" required>
+			<input type="text" asp-for="NoteText" maxlength="1000" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Введите заметку*" required>
+			<div class="invalid-feedback">
+				Введите заметку
+			</div>
 		</div>
 		<div class="form-check">
 			<div class="custom-control custom-checkbox">
@@ -55,23 +58,23 @@
 		<div class="row">
 			<div class="col-md-6 mb-3">
 				<label asp-for="DaysDeleting" for="validationCustom03">Введите кол-во дней</label>
-				<input type="number" asp-for="DaysDeleting" class="form-control" id="validationCustom03" placeholder="Введите кол-во дней" value="0">
+				<input type="number" min="0" asp-for="DaysDeleting" class="form-control" id="validationCustom03" placeholder="Введите кол-во дней" value="0">
 				<div class="invalid-feedback">
-					Please provide a valid city.
+					Введите корректное кол-во дней
 				</div>
 			</div>
 			<div class="col-md-3 mb-3">
 				<label asp-for="HoursDeleting" for="validationCustom04">Введите кол-во часов</label>
-				<input type="number" asp-for="HoursDeleting" class="form-control" id="validationCustom04" placeholder="Введите кол-во часов" value="1">
+				<input type="number" min="0" asp-for="HoursDeleting" class="form-control" id="validationCustom04" placeholder="Введите кол-во часов" value="1">
 				<div class="invalid-feedback">
-					Please provide a valid state.
+					Введите корректное кол-во часов
 				</div>
 			</div>
 			<div class="col-md-3 mb-3">
 				<label asp-for="MinutesDeleting" for="validationCustom05">Введите кол-во минут</label>
-				<input type="number" asp-for="MinutesDeleting" class="form-control" id="validationCustom05" placeholder="Введите кол-во минут" value="0">
+				<input type="number" min="0" asp-for="MinutesDeleting" class="form-control" id="validationCustom05" placeholder="Введите кол-во минут" value="0">
 				<div class="invalid-feedback">
-					Please provide a valid zip.
+					Введите корректное кол-во минут
 				</div>
 			</div>
 		</div>
@@ -80,18 +83,4 @@
 	</form>
 </div>
 
-<script>
-	(function () {
-	"use strict";
-	window.addEventListener("load", function () {
-		var form = document.getElementById("needs-validation");
-		form.addEventListener("submit", function (event) {
-			if (form.checkValidity() === false) {
-				event.preventDefault();
-				event.stopPropagation();
-			}
-			form.classList.add("was-validated");
-		}, false);
-	}, false);
-}());
-</script>
+

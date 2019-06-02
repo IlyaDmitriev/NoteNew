@@ -9,10 +9,18 @@
 	For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
-@if (!Model.AlreadyDeleted)
+@if (!Model.AlreadyDeleted && Model.Note != null)
 {
-	<h1>hello, @Model.Note.UserName</h1>
-	<div>That's your note: </div>
-	<h2>Text: @Model.Note.NoteText</h2>
+	<h1>Привет, @Model.Note.UserName</h1>
+	
+
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Вот твоя заметка:</h1>
+			<p class="lead">@Model.Note.NoteText</p>
+		</div>
+	</div>
 }
 <div>@Model.Message</div>
+<br />
+

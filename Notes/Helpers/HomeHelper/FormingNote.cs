@@ -20,6 +20,7 @@ namespace Notes.Helpers.HomeHelper
 			note.DeletingDate = dateDeleting;
 			note.GuidNote = guid;
 			note.CreationDate = currentDate;
+			note.UserName = !string.IsNullOrWhiteSpace(note.UserName) ? note.UserName : "Человек без имени";
 
 			return note;
 		}
