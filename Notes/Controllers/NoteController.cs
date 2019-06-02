@@ -52,7 +52,7 @@ namespace Notes.Controllers
 			return note;
 		}
 
-		private static GetNote FormingViewModel(Note note)
+		private GetNote FormingViewModel(Note note)
 		{
 			var viewModel = new GetNote();
 			if (note != null)
