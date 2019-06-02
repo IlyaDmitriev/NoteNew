@@ -4,11 +4,6 @@
 	var note = Model.Note;
 }
 
-@*
-
-	For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-
 @if (!Model.AlreadyDeleted && Model.Note != null)
 {
 	<h1>Привет, @Model.Note.UserName</h1>
