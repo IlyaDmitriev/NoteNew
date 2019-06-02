@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Notes.Helpers.HomeHelper;
-using Notes.Models;
-using Notes.Services.NoteService;
-using NotesCore.Models;
-using NotesCore.Models.Context;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Notes.Controllers
 {

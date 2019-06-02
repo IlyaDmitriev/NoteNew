@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NotesCore.Models;
@@ -18,30 +19,23 @@ namespace Notes.Services.NoteService
 		{
 			context = dataContext;
 		}		
-		public IQueryable<Note> Notes
-		{
-			get
-			{				
-				return context.Notes;
-			}
-		}
 
-		public void AddNote(Note note)
+		public async Task AddNote(Note note)
 		{			
 			context.Notes.Add(note);
-			context.SaveChanges();				
+			await context.SaveChangesAsync();				
 		}
 
-		public Note GetNote(string guid)
+		public async Task<Note> GetNote(string guid)
 		{			
-			var note = context.Notes.FirstOrDefault(x => x.GuidNote == guid);
+			var note = await context.Notes.FirstOrDefaultAsync(x => x.GuidNote == guid);
 			return note;
 		}
 
-		public void UpdateNoteAlreadyDeleted(Note note)
+		public async Task UpdateNoteAlreadyDeleted(Note note)
 		{			
 			note.AlreadyDeleted = true;
-			context.SaveChanges();				
+			await context.SaveChangesAsync();				
 		}		
 	}
 }

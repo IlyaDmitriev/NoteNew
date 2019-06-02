@@ -1,14 +1,12 @@
 ﻿using NotesCore.Models;
-using NotesCore.Models.Context;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace Notes.Services.NoteService
 {
 	public interface INoteService
 	{
-		void AddNote(Note note);
-		Note GetNote(string guid);
-		void UpdateNoteAlreadyDeleted(Note note);
-		IQueryable<Note> Notes { get; }		
+		Task AddNote(Note note);
+		Task<Note> GetNote(string guid);
+		Task UpdateNoteAlreadyDeleted(Note note);			
 	}
 }
