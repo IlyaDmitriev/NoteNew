@@ -6,22 +6,29 @@ namespace NotesCore.Models
 {
 	public class Note
 	{
-		public int Id { get; set; }
-		public string NoteText { get; set; }
-		public DateTime CreationDate { get; set; }
-		public DateTime? DeletingDate { get; set; }
-		public bool DeleteAfterRead { get; set; }
-		public bool AlreadyDeleted { get; set; }
-		public string UserName { get; set; }
+        /// <summary>
+        /// Уникальный идентификатор
+        /// </summary>
+        public Guid Id { get; set; }
 
-		public int? HoursDeleting { get; set; }
-		public int? SecondsDeleting { get; set; }
-		public int? MinutesDeleting { get; set; }
+        /// <summary>
+        /// Текст заментки
+        /// </summary>
+        public string Text { get; set; }
 
-		public int? DaysDeleting { get; set; }
+        /// <summary>
+        /// Автор
+        /// </summary>
+        public string Author { get; set; }
 
-		public string GuidNote { get; set; }
+        /// <summary>
+        ///  Дата и время создание заметки
+        /// </summary>
+        public DateTime CreatedDate { get; set; }
 
-		public string GuidNote1 { get; set; }
-	}
+        /// <summary>
+        /// Жизненый цикл
+        /// </summary>
+        public LifeTimeNote LifeTime { get; set; }
+    }
 }

@@ -33,7 +33,7 @@ namespace Notes
 			services.AddDbContext<NotesContext>(options =>
 				options.UseSqlServer(connection));
 			
-			services.AddScoped<INoteService, NoteService>();
+			//services.AddScoped<INoteService, NoteService>();
 
 			services.AddMvc();
 		}
